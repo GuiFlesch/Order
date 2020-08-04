@@ -1,6 +1,10 @@
 package application;
 
-import entities.*;
+import entities.Client;
+import entities.OrderStatus;
+import entities.Order;
+import entities.Product;
+import entities.OrderItem;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -22,7 +26,7 @@ public class Program {
         System.out.print("Name: ");
         String clientName = sc.nextLine();
         System.out.print("Email: ");
-        String clientEmail = sc.nextLine();
+        String clientEmail = sc.next();
         System.out.print("Birth date (DD/MM/YYYY): ");
         Date birthDate = sdfBirth.parse(sc.next());
 
@@ -30,10 +34,10 @@ public class Program {
 
         System.out.println("Enter order data:");
         System.out.print("Status: ");
-        sc.nextLine();
         OrderStatus status = OrderStatus.valueOf(sc.next());
-        Date moment = new Date((System.currentTimeMillis()));
-        Order order = new Order(moment, status, client);
+
+
+        Order order = new Order(new Date(), status, client);
 
         System.out.print("How many items to this order?");
         int n = sc.nextInt();

@@ -7,9 +7,6 @@ public class OrderItem {
 
     private Product product = new Product();
 
-    public OrderItem(){
-    }
-
     public OrderItem(Integer quantity, Double price, Product product){
         this.quantity = quantity;
         this.price = price;
@@ -44,6 +41,7 @@ public class OrderItem {
         return price * quantity;
     }
 
+    @Override
     public String toString(){
         return product.getName()
                 + ", $"

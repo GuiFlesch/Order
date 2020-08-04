@@ -4,10 +4,11 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import entities.OrderStatus;
 
 public class Order {
 
-    private static final SimpleDateFormat sdfMoment = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+    private static final SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
 
     private Date moment;
     private OrderStatus status;
@@ -15,8 +16,7 @@ public class Order {
     private Client client;
     private List<OrderItem> items = new ArrayList<>();
 
-    public Order() {
-    }
+
 
     public Order(Date moment, OrderStatus status, Client client) {
         this.moment = moment;
@@ -49,11 +49,6 @@ public class Order {
         this.client = client;
     }
 
-    public List<OrderItem> getItems() {
-        return items;
-    }
-
-
     public void addItem(OrderItem item){
         items.add(item);
     }
@@ -75,7 +70,8 @@ public class Order {
     public String toString(){
         StringBuilder sb = new StringBuilder();
         sb.append("Order moment: ");
-        sb.append(sdfMoment.format(moment) + "\n");
+        sb.append(sdf.format(moment));
+        sb.append("\n");
         sb.append("Order status: ");
         sb.append(status + "\n");
         sb.append("Client: ");
